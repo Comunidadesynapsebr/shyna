@@ -10,10 +10,10 @@
   - Manter uma chave secreta no proxy/serverless da Vercel, sem expor segredos no cliente ou no repositório.
   - Permitir configuração por variáveis de ambiente e explicar o modo de desenvolvimento quando o proxy não estiver configurado.
 
-- [ ] **Limites diários por navegador**
+- [ ] **Limites diários por IP e navegador**
   - Aplicar 30 mensagens por dia no Shyna Lite e 15 mensagens por dia no Shyna Pro.
   - Aplicar 4 imagens por dia e 1 vídeo por dia.
-  - Exibir contadores, bloquear novas gerações ao atingir a cota, renovar no dia seguinte e explicar que o controle é local e pode ser apagado no dispositivo.
+  - Exibir contadores, bloquear novas gerações ao atingir a cota, renovar no dia seguinte e combinar no servidor o IP com um identificador anônimo persistido neste navegador; explicar que a proteção não é antifraude forte.
 
 - [ ] **Termos, privacidade e cookies**
   - Incluir modais acessíveis para termos de uso, privacidade/cookies e aviso de conteúdo gerado por IA.

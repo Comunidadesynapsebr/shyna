@@ -4,7 +4,7 @@ Shyna é uma interface em português do Brasil para conversa, imagens e vídeo c
 
 ## Limites do produto
 
-O controle diário é local ao navegador: 30 mensagens no Lite, 15 no Pro, 4 imagens e 1 vídeo. A data e os contadores ficam em `localStorage` e renovam no dia seguinte. Isso melhora a experiência e evita consumo acidental, mas não é uma barreira antifraude. Limites fortes por pessoa ou por IP exigem autenticação, armazenamento persistente e rate limiting no servidor.
+O controle diário combina o IP recebido pela Vercel com um identificador aleatório e anônimo persistido neste navegador: 30 mensagens no Lite, 15 no Pro, 4 imagens e 1 vídeo. O frontend exibe os contadores locais e o proxy serverless aplica a mesma regra no servidor. Não há login nem cadastro. A memória do proxy é de curta duração por instância; para uma barreira antifraude forte e persistente, conecte Redis/KV ou outro armazenamento compartilhado antes de escalar.
 
 ## Modelos configurados
 

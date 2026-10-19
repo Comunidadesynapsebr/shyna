@@ -13,6 +13,19 @@ export class ShynaApiError extends Error {
   }
 }
 
+function getBrowserId() {
+  const storageKey = 'shyna.browser-id.v1';
+  try {
+    const current = localStorage.getItem(storageKey);
+    if (current) return current;
+    const created = crypto.randomUUID();
+    localStorage.setItem(storageKey, created);
+    return created;
+  } catch {
+    return `temporary-${Math.random().toString(36).slice(2)}`;
+  }
+}
+
 async function readError(response: Response): Promise<string> {
   try {
     const payload = (await response.json()) as { error?: string };
@@ -25,7 +38,7 @@ async function readError(response: Response): Promise<string> {
 export async function generate(kind: GenerationKind, prompt: string, model?: string): Promise<GenerationResponse> {
   const response = await fetch('/api/pollinations', {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': 'application/json', 'X-Shyna-Browser-Id': getBrowserId() },
     body: JSON.stringify({ kind, prompt, model }),
   });
 
