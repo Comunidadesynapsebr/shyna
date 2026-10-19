@@ -1,0 +1,16 @@
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" },
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; connect-src 'self' https://gen.pollinations.ai https://enter.pollinations.ai; img-src 'self' data: blob: https://gen.pollinations.ai https://media.pollinations.ai; media-src 'self' blob: https://gen.pollinations.ai https://media.pollinations.ai; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; script-src 'self'; font-src 'self' https://fonts.gstatic.com; base-uri 'self'; form-action 'self'" }
+      ]
+    }
+  ]
+}
